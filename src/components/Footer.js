@@ -1,55 +1,40 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 export default function Footer() {
-    return (
-      <footer
-        style={{
-          background: "#1a1208",
-          color: "#ccc",
-          padding: "48px 40px 28px",
-          marginTop: 80,
-        }}
-      >
-        <div
-          style={{
-            maxWidth: 1200,
-            margin: "0 auto",
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-            gap: 40,
-            marginBottom: 40,
-          }}
-        >
-          <div>
-            <h3 style={{ color: "#fff", fontWeight: 900, fontSize: 20, margin: "0 0 12px" }}>
-              KAYU<span style={{ color: "#c8a96e" }}>NUSANTARA</span>
-            </h3>
-            <p style={{ fontSize: 13, lineHeight: 1.7, margin: 0 }}>
-              Furnitur premium berkualitas tinggi dari tangan pengrajin lokal terbaik Indonesia.
-            </p>
+  return (
+    <footer className="mt-16 bg-brand-dark text-stone-400">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-8 md:grid-cols-[1.2fr_1fr_1fr]">
+        <div>
+          <div className="font-display text-xl font-black text-white">
+            Kayu<span className="text-brand-gold">Nusantara</span>
           </div>
-          <div>
-            <h4 style={{ color: "#fff", margin: "0 0 12px" }}>Kategori</h4>
-            {["Living Room", "Bedroom", "Dining", "Office"].map((c) => (
-              <p key={c} style={{ margin: "0 0 6px", fontSize: 13 }}>{c}</p>
-            ))}
-          </div>
-          <div>
-            <h4 style={{ color: "#fff", margin: "0 0 12px" }}>Kontak</h4>
-            <p style={{ margin: "0 0 6px", fontSize: 13 }}>📍 Bandung, Jawa Barat</p>
-            <p style={{ margin: "0 0 6px", fontSize: 13 }}>📞 (022) 1234-5678</p>
-            <p style={{ margin: 0, fontSize: 13 }}>✉️ hello@kayunusantara.id</p>
-          </div>
+          <p className="mt-3 max-w-sm text-sm leading-relaxed">
+          Menghadirkan furnitur kayu pilihan dengan desain eksklusif dan kualitas pengerjaan terbaik untuk menciptakan kenyamanan hunian yang autentik.
+          </p>
         </div>
-        <div
-          style={{
-            borderTop: "1px solid rgba(255,255,255,0.1)",
-            paddingTop: 20,
-            textAlign: "center",
-            fontSize: 12,
-            color: "#666",
-          }}
-        >
-          © 2026 KayuNusantara. Dibuat dengan ❤️ di Indonesia.
+        <nav aria-label="Footer jelajah">
+          <h4 className="mb-4 text-sm font-bold text-white">Jelajah</h4>
+          <Link to="/" className="block text-sm transition hover:text-brand-gold">
+            Home
+          </Link>
+          <Link to="/category" className="mt-2 block text-sm transition hover:text-brand-gold">
+            Category
+          </Link>
+          <Link to="/products" className="mt-2 block text-sm transition hover:text-brand-gold">
+            Product
+          </Link>
+        </nav>
+        <div>
+          <h4 className="mb-4 text-sm font-bold text-white">Kontak</h4>
+          <p className="text-sm">Bandung, Jawa Barat</p>
+          <p className="mt-2 text-sm">(022) 1234-5678</p>
+          <p className="mt-2 text-sm">hello@kayunusantara.id</p>
         </div>
-      </footer>
-    );
-  }
+      </div>
+      <div className="border-t border-white/10 py-6 text-center text-xs text-stone-500">
+        © {new Date().getFullYear()} Kayu Nusantara
+      </div>
+    </footer>
+  );
+}

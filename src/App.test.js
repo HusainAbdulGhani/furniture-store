@@ -1,8 +1,9 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders brand and navigation', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  expect(screen.getByRole('link', { name: /Kayu Nusantara/i })).toBeInTheDocument();
+  const mainNav = screen.getByRole('navigation', { name: 'Utama' });
+  expect(within(mainNav).getByRole('link', { name: /^Home$/i })).toBeInTheDocument();
 });
